@@ -5,5 +5,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
   },
-  "unocss.root": ["socket.io/node-server"]
+  "unocss.root": ["socket.io/express", "socket.io/node-server"]
 }

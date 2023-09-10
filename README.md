@@ -6,3 +6,4 @@ The following examples are built using qwik.  They should be used as just that, 
 
 ## Socket.IO
 - [Node-server](socket.io/node-server) - Using node http server and Socket.IO
+- [Express](socket.io/express) - Using node http server with Express and Socket.IO

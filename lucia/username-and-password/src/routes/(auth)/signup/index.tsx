@@ -37,7 +37,7 @@ zod$((z) => {
   return z.object({
     username: z.string().min(4).max(31),
     password: z.string().min(6).max(255),
-    confirmPassword: z.string().min(6).max(255),
+    confirmPassword: z.string().optional(),
   }).superRefine(({ password, confirmPassword }, ctx) => {
     if (confirmPassword !== password) {
       ctx.addIssue({
@@ -77,12 +77,6 @@ export default component$(() => {
         <>
           <h3>Password Issue(s):</h3>
           {signUpAction.value.fieldErrors.password.map((error, index) => <p key={index} class="error">{error}</p>)}
-        </>
-      )}
-      {signUpAction.value?.fieldErrors?.confirmPassword?.length && (
-        <>
-          <h3>Password Issue(s):</h3>
-          {signUpAction.value.fieldErrors.confirmPassword.map((error, index) => <p key={index} class="error">{error}</p>)}
         </>
       )}
       {signUpAction.value?.error && <p class="error">{signUpAction.value.error}</p>}

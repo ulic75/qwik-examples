@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { Form, Link, routeAction$, z, zod$ } from '@builder.io/qwik-city'
+import { Form, Link, routeAction$, zod$ } from '@builder.io/qwik-city'
 import { SqliteError } from 'better-sqlite3'
 
 import { auth } from '~/auth/lucia'
@@ -33,9 +33,20 @@ export const useSignUpAction = routeAction$(async (data, event) => {
     }
   }
 },
-zod$({
-  username: z.string().min(4).max(31),
-  password: z.string().min(6).max(255),
+zod$((z) => {
+  return z.object({
+    username: z.string().min(4).max(31),
+    password: z.string().min(6).max(255),
+    confirmPassword: z.string().min(6).max(255),
+  }).superRefine(({ password, confirmPassword }, ctx) => {
+    if (confirmPassword !== password) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'The passwords did not match',
+        path: ['password'],
+      })
+    }
+  })
 }),
 )
 
@@ -51,6 +62,9 @@ export default component$(() => {
         <label for="password">Password</label>
         <input type="password" name="password" id="password" />
         <br />
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" id="password" />
+        <br />
         <input type="submit" />
       </Form>
       {signUpAction.value?.fieldErrors?.username?.length && (
@@ -63,6 +77,12 @@ export default component$(() => {
         <>
           <h3>Password Issue(s):</h3>
           {signUpAction.value.fieldErrors.password.map((error, index) => <p key={index} class="error">{error}</p>)}
+        </>
+      )}
+      {signUpAction.value?.fieldErrors?.confirmPassword?.length && (
+        <>
+          <h3>Password Issue(s):</h3>
+          {signUpAction.value.fieldErrors.confirmPassword.map((error, index) => <p key={index} class="error">{error}</p>)}
         </>
       )}
       {signUpAction.value?.error && <p class="error">{signUpAction.value.error}</p>}

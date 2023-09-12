@@ -123,6 +123,66 @@ importers:
         specifier: 4.2.0
         version: 4.2.0(typescript@5.1.6)(vite@4.4.7)
 
+  lucia/username-and-password:
+    devDependencies:
+      '@builder.io/qwik':
+        specifier: ^1.2.10
+        version: 1.2.10(undici@5.22.1)
+      '@builder.io/qwik-city':
+        specifier: ^1.2.10
+        version: 1.2.10
+      '@libsql/client':
+        specifier: ^0.3.4
+        version: 0.3.4
+      '@lucia-auth/adapter-sqlite':
+        specifier: ^2.0.0
+        version: 2.0.0(@libsql/client@0.3.4)(better-sqlite3@8.6.0)(lucia@2.5.0)
+      '@lucia-auth/oauth':
+        specifier: ^3.1.0
+        version: 3.1.0(lucia@2.5.0)
+      '@types/better-sqlite3':
+        specifier: ^7.6.4
+        version: 7.6.4
+      '@types/eslint':
+        specifier: 8.44.1
+        version: 8.44.1
+      '@types/node':
+        specifier: ^20.4.5
+        version: 20.6.0
+      '@typescript-eslint/eslint-plugin':
+        specifier: 6.2.0
+        version: 6.2.0(@typescript-eslint/parser@6.2.0)(eslint@8.45.0)(typescript@5.1.6)
+      '@typescript-eslint/parser':
+        specifier: 6.2.0
+        version: 6.2.0(eslint@8.45.0)(typescript@5.1.6)
+      better-sqlite3:
+        specifier: ^8.6.0
+        version: 8.6.0
+      eslint:
+        specifier: 8.45.0
+        version: 8.45.0
+      eslint-plugin-qwik:
+        specifier: ^1.2.10
+        version: 1.2.10(eslint@8.45.0)
+      lucia:
+        specifier: ^2.5.0
+        version: 2.5.0
+      prettier:
+        specifier: 3.0.0
+        version: 3.0.0
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+      undici:
+        specifier: 5.22.1
+        version: 5.22.1
+      vite:
+        specifier: 4.4.7
+        version: 4.4.7(@types/node@20.6.0)
+      vite-tsconfig-paths:
+        specifier: 4.2.0
+        version: 4.2.0(typescript@5.1.6)(vite@4.4.7)
+
   socket.io/express:
     devDependencies:
       '@builder.io/qwik':

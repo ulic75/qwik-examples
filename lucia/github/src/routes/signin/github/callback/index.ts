@@ -3,7 +3,7 @@ import type { RequestHandler } from '@builder.io/qwik-city'
 import { auth, githubAuth } from '~/auth/lucia'
 
 export const onRequest: RequestHandler = async (event) => {
-  const authRequest = auth.handleRequest(event.request)
+  const authRequest = auth.handleRequest(event)
   const session = await authRequest.validate()
   if (session)
     throw event.redirect(302, '/')

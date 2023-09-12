@@ -4,7 +4,7 @@ import { betterSqlite3 } from '@lucia-auth/adapter-sqlite'
 import { github } from '@lucia-auth/oauth/providers'
 import sqlite from 'better-sqlite3'
 import { lucia } from 'lucia'
-import { web } from 'lucia/middleware'
+import { qwik } from 'lucia/middleware'
 
 const db = sqlite(':memory:')
 db.exec(fs.readFileSync('schema.sql', 'utf8'))
@@ -17,7 +17,7 @@ export const auth = lucia({
   }),
   // eslint-disable-next-line n/prefer-global/process
   env: process.env.NODE_ENV === 'development' ? 'DEV' : 'PROD',
-  middleware: web(),
+  middleware: qwik(),
   sessionCookie: {
     expires: false,
   },

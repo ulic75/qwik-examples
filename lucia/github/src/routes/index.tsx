@@ -4,7 +4,7 @@ import { type DocumentHead, Form, routeAction$, routeLoader$ } from '@builder.io
 import { auth } from '~/auth/lucia'
 
 export const useSessionUser = routeLoader$(async (event) => {
-  const authRequest = auth.handleRequest(event.request)
+  const authRequest = auth.handleRequest(event)
   const session = await authRequest.validate()
   if (!session)
     throw event.redirect(302, '/signin/')
@@ -12,7 +12,7 @@ export const useSessionUser = routeLoader$(async (event) => {
 })
 
 export const useSignOutAction = routeAction$(async (_, event) => {
-  const authRequest = auth.handleRequest(event.request)
+  const authRequest = auth.handleRequest(event)
   const session = await authRequest.validate()
   if (!session)
     throw event.error(401, 'Unauthorized')

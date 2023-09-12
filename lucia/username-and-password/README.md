@@ -23,7 +23,6 @@ Inside your project, you'll see the following directory structure:
 │   │   ├── index.tsx
 │   │   └── ...
 │   └── app.d.ts
-├── .env.example
 ├── schema.sql
 └── ...
 ```
@@ -41,8 +40,6 @@ Inside your project, you'll see the following directory structure:
 - `src/routes/index.tsx`: Shows user profile when signed in
 
 - `src/app.d.ts`: Declares the Lucia namespace as describe in their [documentation](https://lucia-auth.com/getting-started#set-up-types)
-
-- `.env.example`: Copy to `.env`. Here is stored the private github id and secret used for authentication to github. Refer to [Create a Github OAuth app](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) for getting the required credentials.
 
 - `schema.sql`: SQL definitions for the creation of tables used in this example
 

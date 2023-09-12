@@ -10,6 +10,12 @@ Auth.js is a complete open-source authentication solution for web applications.
 
 - [With Credentials, Github and Google providers](authjs/creds-github-google/)
 
+## [Lucia](https://lucia-auth.com/)
+
+Lucia is an auth library for TypeScript that abstracts away the complexity of handling users and sessions. It works alongside your database to provide an API that's easy to use, understand, and extend.
+
+- [GitHub](lucia/github/) - Use Lucia to authenticate against GitHub OAuth
+
 ## [Socket.IO](https://socket.io/)
 
 Bidirectional and low-latency communication for every platform.

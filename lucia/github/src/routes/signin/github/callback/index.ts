@@ -32,7 +32,6 @@ export const onRequest: RequestHandler = async (event) => {
     userId: user.userId,
     attributes: { },
   })
-  const { name, value, attributes } = auth.createSessionCookie(newSession)
-  event.cookie.set(name, value, attributes)
+  authRequest.setSession(newSession)
   throw event.redirect(302, '/')
 }

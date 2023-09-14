@@ -4,13 +4,6 @@ import { LuciaError } from 'lucia'
 
 import { auth } from '~/auth/lucia'
 
-// export const onGet: RequestHandler = async (event) => {
-//   const authRequest = auth.handleRequest(event)
-//   const session = await authRequest.validate()
-//   if (session)
-//     throw event.redirect(302, '/')
-// }
-
 export const useSigninAction = routeAction$(async (data, event) => {
   const { username, password } = data
   try {

@@ -21,7 +21,7 @@ export const onRequest: RequestHandler = async (event) => {
       return existingUser
     const user = await createUser({
       attributes: {
-        github_username: githubUser.login,
+        username: githubUser.login,
       },
     })
     return user

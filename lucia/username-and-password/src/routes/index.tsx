@@ -18,8 +18,7 @@ export const useSignOutAction = routeAction$(async (_, event) => {
     throw event.error(401, 'Unauthorized')
 
   await auth.invalidateSession(session.sessionId)
-  const { name, value, attributes } = auth.createSessionCookie(null)
-  event.cookie.set(name, value, attributes)
+  authRequest.setSession(null)
   throw event.redirect(302, '/login/')
 })
 

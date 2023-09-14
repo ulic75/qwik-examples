@@ -9,8 +9,8 @@ export const useSigninAction = routeAction$(async (data, event) => {
   try {
     const key = await auth.useKey('username', username.toLowerCase(), password)
     const session = await auth.createSession({ userId: key.userId, attributes: {} })
-    const { name, value, attributes } = auth.createSessionCookie(session)
-    event.cookie.set(name, value, attributes)
+    const authRequest = auth.handleRequest(event)
+    authRequest.setSession(session)
     event.redirect(302, '/')
   } catch (e) {
     if (e instanceof LuciaError && (e.message === 'AUTH_INVALID_KEY_ID' || e.message === 'AUTH_INVALID_PASSWORD')) {

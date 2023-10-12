@@ -22,7 +22,6 @@ export default component$(() => {
   useVisibleTask$(() => {
     try {
       socket.value = noSerialize(io())
-      socket.value?.connect()
 
       socket.value?.on('name', name => (username.value = name))
 
@@ -30,8 +29,7 @@ export default component$(() => {
         'message',
         newMessage => (messages.value = [...messages.value, newMessage]),
       )
-    }
-    catch {
+    } catch {
       console.log('socket.io connection failure')
     }
   })
